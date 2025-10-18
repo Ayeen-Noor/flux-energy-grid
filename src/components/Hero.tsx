@@ -1,5 +1,6 @@
 import { ArrowDown, TrendingUp, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SparklesCore } from "@/components/ui/sparkles";
 import fluxLogo from "@/assets/flux-logo.png";
 
 const Hero = () => {
@@ -13,27 +14,24 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-circuit opacity-30"></div>
-      <div className="absolute inset-0" style={{ background: "var(--gradient-ambient)" }}></div>
-      
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              opacity: Math.random() * 0.5 + 0.3,
-            }}
-          ></div>
-        ))}
+      {/* Sparkles Background */}
+      <div className="absolute inset-0">
+        <SparklesCore
+          id="tsparticles"
+          background="transparent"
+          minSize={0.4}
+          maxSize={1.2}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#00D9FF"
+        />
       </div>
+      
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-circuit opacity-20"></div>
+      <div className="absolute inset-0" style={{ background: "var(--gradient-ambient)" }}></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in-up">
